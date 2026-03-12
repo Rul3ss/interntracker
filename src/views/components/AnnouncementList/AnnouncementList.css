@@ -1,0 +1,13 @@
+.announcement-list {
+  padding-bottom: 60px;
+}
+
+.no-results {
+  text-align: center;
+  padding: 40px;
+  background: var(--bg-color);
+  border-radius: var(--border-radius);
+  color: var(--text-secondary);
+  box-shadow: var(--card-shadow);
+  animation: fadeIn 0.5s ease-out;
+}

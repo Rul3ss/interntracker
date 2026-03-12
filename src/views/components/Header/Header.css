@@ -1,0 +1,28 @@
+.main-header {
+  background: rgba(18, 18, 18, 0.8);
+  backdrop-filter: blur(10px);
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--border-color);
+  animation: slideInDown 0.5s ease-out;
+}
+
+.header-content {
+  text-align: center;
+}
+
+.header-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  letter-spacing: -0.5px;
+}
+
+.header-subtitle {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}

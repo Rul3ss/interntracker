@@ -1,0 +1,57 @@
+:root {
+  --primary-color: #00a8ff;
+  --primary-hover: #00d2ff;
+  --bg-color: #121212;
+  --secondary-bg: #0a0a0a;
+  --text-main: #f5f6fa;
+  --text-secondary: #a4b0be;
+  --border-color: #2f3542;
+  --card-bg: #1e1e1e;
+  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  --card-hover-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  --header-height: 80px;
+  --border-radius: 12px;
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--secondary-bg);
+  color: var(--text-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+button, input, select {
+  font-family: inherit;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInDown {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(0); }
+}
+
+.loading {
+  text-align: center;
+  padding: 40px;
+  color: var(--primary-color);
+  font-weight: 600;
+  animation: fadeIn 0.5s ease-in-out infinite alternate;
+}
