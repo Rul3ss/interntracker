@@ -65,7 +65,6 @@ export class ScraperService {
           : "https://ufrb.edu.br" + relativeUrl;
         const dateRaw = $(element).find(".tileInfo").text().trim();
         const date = this.extractDate(dateRaw);
-        const description = $(element).find(".tileText").text().trim();
 
         if (title) {
           announcements.push({
@@ -73,7 +72,7 @@ export class ScraperService {
             url: announcementUrl,
             date,
             source,
-            description,
+            description: "",
           });
         }
       });
@@ -95,6 +94,14 @@ export class ScraperService {
 
   async scrapeProexc() {
     return this.scrapeStandardPortal(SCRAPER_CONFIG.PORTALS.PROEXC, "PROEXC");
+  }
+
+  async scrapeCETEC() {
+    return this.scrapeStandardPortal(SCRAPER_CONFIG.PORTALS.CETEC, "CETEC");
+  }
+
+  async scrapePROPAAE() {
+    return this.scrapeStandardPortal(SCRAPER_CONFIG.PORTALS.PROPAAE, "PROPAAE");
   }
 
   async scrapePortal(): Promise<ScrapedAnnouncement[]> {
@@ -127,23 +134,13 @@ export class ScraperService {
           }
         }
 
-        const description =
-          item
-            .find("description")
-            .text()
-            .replace(/<[^>]*>/g, "")
-            .replace(/&#8217;/g, "'")
-            .replace(/&#160;/g, " ")
-            .substring(0, 200)
-            .trim() + "...";
-
         if (title) {
           announcements.push({
             title,
             url,
             date,
             source: "Portal UFRB",
-            description,
+            description: "",
           });
         }
       });

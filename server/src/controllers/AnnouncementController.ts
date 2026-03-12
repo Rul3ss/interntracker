@@ -29,19 +29,21 @@ export class AnnouncementController {
       }
 
       console.log("Fetching fresh data via scraper...");
-      const [prograd, ppgci, proexc, portal, ufrb] = await Promise.all([
+      const [prograd, ppgci, proexc, cetec, propaae, portal, ufrb] = await Promise.all([
         scraperService.scrapePrograd(),
         scraperService.scrapePPGCI(),
         scraperService.scrapeProexc(),
+        scraperService.scrapeCETEC(),
+        scraperService.scrapePROPAAE(),
         scraperService.scrapePortal(),
         scraperService.scrapeUFRB(),
       ]);
 
       const twoWeeksAgo = now - FILTER_CONFIG.RECENCY_MS;
 
-      const allAnnouncements = [...prograd, ...ppgci, ...proexc, ...portal, ...ufrb]
+      const allAnnouncements = [...prograd, ...ppgci, ...proexc, ...cetec, ...propaae, ...portal, ...ufrb]
         .filter((ann) => {
-          const titleDesc = (ann.title + " " + ann.description).toLowerCase();
+          const titleDesc = ann.title.toLowerCase();
 
           const hasExcluded = FILTER_CONFIG.EXCLUDED_KEYWORDS.some((kw) =>
             titleDesc.includes(kw),

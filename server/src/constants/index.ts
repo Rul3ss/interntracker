@@ -5,11 +5,13 @@ export const SCRAPER_CONFIG = {
     PPGCI: "https://ufrb.edu.br/ppgci/noticias",
     PROEXC: "https://ufrb.edu.br/proexc/noticias",
     PORTAL: "https://ufrb.edu.br/portal/category/noticias/",
+    CETEC: "https://ufrb.edu.br/cetec/noticias",
+    PROPAAE: "https://www.ufrb.edu.br/propaae/noticias",
   },
 };
 
 export const CACHE_CONFIG = {
-  DURATION_CASH: 30,
+  DURATION_CASH: 3600, //minutos
   get DURATION_MS() {
     return this.DURATION_CASH * 60 * 1000;
   },
@@ -42,6 +44,7 @@ export const FILTER_CONFIG = {
     "edital",
     "seleciona",
     "processo seletivo",
+    "edital",
   ],
   EXCLUDED_KEYWORDS: [
     "posse",
