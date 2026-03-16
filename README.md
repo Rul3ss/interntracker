@@ -1,16 +1,92 @@
-# React + Vite
+# UFRB Tracker 🚀
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+O **UFRB Tracker** é uma aplicação Full-Stack desenvolvida para facilitar o acesso e o acompanhamento de avisos, notícias e comunicados da **Universidade Federal do Recôncavo da Bahia (UFRB)**. 
 
-Currently, two official plugins are available:
+Através de técnicas avançadas de *web scraping*, o sistema centraliza informações de diversos portais da universidade em uma única interface intuitiva, permitindo buscas rápidas e filtragem por categorias.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🛠️ Tecnologias Utilizadas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Frontend
+- **React 19**: Biblioteca principal para construção da interface.
+- **Vite**: Ferramenta de build ultra-rápida.
+- **CSS Vanilla**: Estilização personalizada seguindo padrões modernos.
+- **MVC Architecture**: Organização clara entre Views, Controllers e Services.
 
-## Expanding the ESLint configuration
+### Backend
+- **Node.js + Express**: Servidor robusto para API.
+- **TypeScript**: Tipagem estática para maior segurança e manutenibilidade.
+- **Cheerio + Axios**: Ferramentas de scraping para extração de dados HTML.
+- **Nodemon**: Reinicialização automática durante o desenvolvimento.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🏗️ Arquitetura do Projeto
+
+O projeto segue o padrão **MVC (Model-View-Controller)** para garantir separação de responsabilidades e facilidade de manutenção.
+
+```text
+ufrbtracker/
+├── server/                # Backend (Node.js + TypeScript)
+│   ├── src/
+│   │   ├── controllers/   # Lógica de controle da API
+│   │   ├── services/      # Lógica de scraping (ScraperService)
+│   │   ├── constants/     # Definições e URLs dos portais
+│   │   └── index.ts       # Ponto de entrada do servidor
+├── src/                   # Frontend (React)
+│   ├── controllers/       # Consumo da API e gestão de estado
+│   ├── views/             # Componentes de interface (Header, List, etc.)
+│   ├── styles/            # CSS organizado
+│   └── App.jsx            # Componente principal
+└── README.md
+```
+
+---
+
+## 🚀 Como Executar o Projeto
+
+### Pré-requisitos
+- [Node.js](https://nodejs.org/) instalado.
+- [npm](https://www.npmjs.com/) ou [yarn].
+
+### 1. Clonar o Repositório
+```bash
+git clone https://github.com/Rul3ss/interntracker.git
+cd ufrbtracker
+```
+
+### 2. Configurar o Backend
+```bash
+cd server
+npm install
+npm run dev
+```
+O servidor estará rodando em `http://localhost:3001`.
+
+### 3. Configurar o Frontend
+Abra um novo terminal na raiz do projeto:
+```bash
+npm install
+npm run dev
+```
+A aplicação React estará disponível em `http://localhost:5173`.
+
+---
+
+## 📋 Funcionalidades Principais
+
+- **Scraping em Tempo Real**: Coleta de avisos de múltiplos portais da UFRB.
+- **Filtro Inteligente**: Busca por texto e filtragem por categorias dinâmicas.
+- **Interface Responsiva**: Design moderno e adaptável para diferentes dispositivos.
+- **Centralização**: Unifica as notícias do CETEC, PPGECID e outros centros em um só lugar.
+
+---
+
+## 📜 Licença
+
+Este projeto está sob a licença ISC. Consulte o arquivo `package.json` no diretório `server` para mais detalhes.
+
+---
+
+Desenvolvido para a comunidade acadêmica da **UFRB**. 🎓
